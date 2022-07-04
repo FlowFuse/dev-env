@@ -44,8 +44,16 @@ flowforge-dev-env
 
 ```
 
-### Changing a repos dependencies
+### Running FlowForge
 
+To start FlowForge and their their dependencies you'll need to build multiple
+projects, you can execute: `npm run build --workspaces --if-present` in the root
+directory.
+
+To start the server, execute: `npm run serve --workspaces --if-present`.
+
+
+### Changing a repos dependencies
 
 **Do not run `npm install` in one of the repository directories under `packages`.**
 
@@ -55,7 +63,6 @@ If you need to modify a repository's dependencies:
 
 1. Edit its `package.json` to add the dependencies in the normal way
 2. Run `npm install` in the root of *this* repository.
-
 
 ### Getting repository status
 
