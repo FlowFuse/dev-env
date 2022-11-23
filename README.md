@@ -149,3 +149,15 @@ find . -name .git -type d -execdir git status \;
 ```
 find . -name .git -type d -execdir git pull \;
 ```
+
+## Auxiliary services
+
+### PostgreSQL
+
+By default FlowForge uses SQLite for development. Given production systems do not
+tend to use SQLite but PostgreSQL (PG) it's advised to run PG for development too.
+As prerequisite, one should install PG on their own system.
+
+To use PG as development database ensure `packages/flowforge/etc/flowforge.yml`
+has `postgres` set as database type. Than run `npm run init` to setup your
+database.
