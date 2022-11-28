@@ -158,8 +158,8 @@ By default FlowForge uses SQLite for development. Given production systems do no
 tend to use SQLite but PostgreSQL (PG) it's advised to run PG for development too.
 As prerequisite, one should install PG on their own system.
 
-To use PG as development database ensure `packages/flowforge/etc/flowforge.yml`
-has `postgres` set as database type. The host can be set to an **absolute** path
+To use PG as development database ensure `packages/flowforge/etc/flowforge.local.yml`
+has `postgres` set as database type. The host must be set to an **absolute** path
 to the root `flowforge-dev-env` repository with `data` appended. For example:
 
 ```yaml
