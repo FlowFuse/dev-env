@@ -96,38 +96,39 @@ If you need to modify a repository's dependencies:
 2. Run `npm install` in the root of *this* repository.
 
 
-### Getting repository status
+## Commands
 
-A common task is to check the status of all repositories - check what branch they 
-have checked out, whether they have changes to commit and so on.
+### `npm run init`
 
-In the root of this repository run:
+Setup the development environment. You can run this repeatedly - such as when
+a new repository has been added that you need to add to your environment
 
-    npm run status
+### `npm run status`
 
-This will report back a summary of the git status for each repository:
+Get the current status of each repository, including what branch they have checked out
+and whether there are unstaged (`*`) and staged (`+`) changes.
+
+For example:
 
 ```
 Package git status
  + flowforge (main *+)
  + forge-ui-components (main)
- + flowforge-driver-localfs (main)
- + flowforge-nr-audit-logger (main)
- + flowforge-nr-auth (main)
- + flowforge-nr-launcher (main)
- + flowforge-nr-storage (main)
- + flowforge-nr-theme (main)
- + flowforge-nr-project-nodes (main)
- + flowforge-driver-k8s (main)
- + flowforge-driver-docker (main)
- + installer (main)
- + helm (main)
- + docker-compose (main)
+ ...
 ```
 
-This tells you the branch of each repository and whether it has unstaged (`*`) and
-staged (`+`) changes.
+### `npm run checkout`
 
+For each repository on the `main` branch, pull the latest code.
+
+### `npm run git <cmd>`
+
+Run any git command on each repostory. For example, to ensure all repositories
+are on the main branch:
+
+```
+npm run git checkout main
+```
 
 ## Why is this needed?
 
@@ -146,17 +147,22 @@ with our multiple repositories.
 
 ## Other terminal tips
 
-From the `packages` directory...
+You can run any command in all repos using either of the following methods:
 
-### Status of each repo
-```
-find . -name .git -type d -execdir git status \;
-```
+1. `npm exec`
 
-### Pull latest for each repo
-```
-find . -name .git -type d -execdir git pull \;
-```
+    ```
+    npm exec --ws -- /usr/bin/git checkout main
+    ```
+
+    However the command will require a full path and you cannot use shell built-ins.
+
+2. `find ...`
+
+    ```
+    find packages -name .git -type d -exec git checkout main
+    ```
+
 
 ## Auxiliary services
 
