@@ -8,7 +8,9 @@
     "init": "node lib/ff-dev-env.js init",
     "status": "node lib/ff-dev-env.js status",
     "update": "node lib/ff-dev-env.js update",
-    "git": "node lib/ff-dev-env.js git"
+    "git": "node lib/ff-dev-env.js git",
+    "remove-unused": "node lib/ff-dev-env.js remove-unused",
+    "check-dependencies": "node lib/ff-dev-env.js check-dependencies"
   },
   "workspaces": [
     "./packages/*"
