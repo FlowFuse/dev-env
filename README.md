@@ -7,13 +7,15 @@ environment.
 
 1. Clone this repository
 
-2. In the root of this repository run:
+2. Install npm though a [Node version manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm) (e.g. NVM, Volta) or with a [custom global install directory](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory).
+
+3. In the root of this repository run:
 
        npm install
        npm run init
       
    This will install the immediate dependencies of the development environment,
-   clone all of the required repositories under the `packages` directory then install
+   clone all of the required repositories under the `packages` directory, link the packages to one another, then install
    all of the dependencies of those repositories. It will then run `npm run build`
    on any of the repositories that require it.
 
@@ -24,8 +26,6 @@ flowforge-dev-env
 ├── LICENSE
 ├── README.md
 ├── lib
-├── node_modules
-│   └── ... All module dependencies are hoisted here - using symlinks for local modules
 ├── package.json
 └── packages
     ├── flowforge
