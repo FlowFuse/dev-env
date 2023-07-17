@@ -7,6 +7,7 @@
   "scripts": {
     "init": "node lib/ff-dev-env.js init",
     "status": "node lib/ff-dev-env.js status",
+    "link": "node lib/ff-dev-env.js link",
     "update": "node lib/ff-dev-env.js update",
     "git": "node lib/ff-dev-env.js git",
     "remove-unused": "node lib/ff-dev-env.js remove-unused",
