@@ -1,7 +1,7 @@
 {
   "name": "flowforge-dev-env",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A meta repo to create a working FlowForge development environment",
   "license": "Apache-2.0",
   "scripts": {
