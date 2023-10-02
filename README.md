@@ -1,6 +1,6 @@
-# FlowForge Development Environment
+# FlowFuse Development Environment
 
-This repository provides a quick and easy way to setup a local FlowForge development
+This repository provides a quick and easy way to setup a local FlowFuse development
 environment.
 
 ## Getting Started
@@ -22,66 +22,34 @@ environment.
 You can now start developing the code normally in the directories under `packages`.
 
 ```
-flowforge-dev-env
+dev-env
 ├── LICENSE
 ├── README.md
 ├── lib
 ├── package.json
 └── packages
-    ├── flowforge
+    ├── flowfuse
     │   └── ... 
-    ├── forge-ui-components
-    │   └── ... 
-    ├── flowforge-driver-localfs
+    ├── driver-localfs
     │   └── ...
-    ├── flowforge-driver-k8s
-    │   └── ...
-    ├── flowforge-driver-docker
-    │   └── ...
-    ├── flowforge-device-agent
-    │   └── ...
-    ├── flowforge-file-server
-    │   └── ...
-    ├── flowforge-nr-audit-logger
-    │   └── ...
-    ├── flowforge-nr-auth
-    │   └── ...
-    ├── flowforge-nr-launcher
-    │   └── ...
-    ├── flowforge-nr-storage
-    │   └── ...
-    ├── flowforge-nr-theme
-    │   └── ...
-    ├── flowforge-nr-project-nodes
-    │   └── ...
-    ├── flowforge-nr-file-nodes
-    │   └── ...
-    ├── flowforge-nr-persistent-context
-    │   └── ...
-    ├── installer
-    │   └── ...
-    ├── helm
-    │   └── ...
-    └── docker-compose
-        └── ...
-
+    .... and all the other repos
 ```
 
-### Running FlowForge
+### Running FlowFuse
 
-After running `npm run init`, you will be able to start FlowForge with its default
+After running `npm run init`, you will be able to start FlowFuse with its default
 configuration by running:
 
-    cd packages/flowforge
+    cd packages/flowfuse
     npm run start
 
 To run in development mode, where it automatically rebuilds the frontend and restarts
 the application when changes are made, run:
 
-    cd packages/flowforge
+    cd packages/flowfuse
     npm run serve
 
-More details on how to develop FlowForge itself are provided in the [main docs](https://github.com/flowforge/flowforge/tree/main/docs/contribute).
+More details on how to develop FlowFuse itself are provided in the [main docs](https://flowfuse.com/docs/contribute/introduction/).
 
 ### Changing a repos dependencies
 
@@ -112,8 +80,7 @@ For example:
 
 ```
 Package git status
- + flowforge (main *+)
- + forge-ui-components (main)
+ + flowfuse (main *+)
  ...
 ```
 
@@ -132,7 +99,7 @@ npm run git checkout main
 
 ## Why is this needed?
 
-The FlowForge platform consists of a number of npm modules. Each module is maintained
+The FlowFuse platform consists of a number of npm modules. Each module is maintained
 in its own git repository. When developing the code and you need to make changes
 across multiple modules, you want to be sure the your development code is loaded.
 
@@ -168,19 +135,19 @@ You can run any command in all repos using either of the following methods:
 
 ### PostgreSQL
 
-By default FlowForge uses SQLite for development. Given production systems do not
+By default FlowFuse uses SQLite for development. Given production systems do not
 tend to use SQLite but PostgreSQL (PG) it's advised to run PG for development too.
 As prerequisite, one should install PG on their own system.
 
-To use PG as development database ensure `packages/flowforge/etc/flowforge.local.yml`
+To use PG as development database ensure `packages/flowfuse/etc/flowforge.local.yml`
 has `postgres` set as database type. The host must be set to an **absolute** path
-to the root `flowforge-dev-env` repository with `data` appended. For example:
+to the root `FlowFuse/dev-env` repository with `data` appended. For example:
 
 ```yaml
 db:
   logging: false
   type: postgres
-  host: /path/to/flowforge-dev-env/data
+  host: /path/to/flowfuse-dev-env/data
   port: 54321
 ```
 
