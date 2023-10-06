@@ -1,8 +1,8 @@
 {
-  "name": "flowforge-dev-env",
+  "name": "dev-env",
   "private": true,
   "version": "2.0.0",
-  "description": "A meta repo to create a working FlowForge development environment",
+  "description": "A meta repo to create a working FlowFuse development environment",
   "license": "Apache-2.0",
   "scripts": {
     "init": "node lib/ff-dev-env.js init",
@@ -11,6 +11,7 @@
     "update": "node lib/ff-dev-env.js update",
     "git": "node lib/ff-dev-env.js git",
     "remove-unused": "node lib/ff-dev-env.js remove-unused",
+    "update-renamed": "node lib/ff-dev-env.js update-renamed",
     "check-dependencies": "node lib/ff-dev-env.js check-dependencies"
   },
   "dependencies": {
