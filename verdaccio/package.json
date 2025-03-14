@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "npx verdaccio --config config/config.yaml"
+  },
+  "dependencies": {
+    "verdaccio": "^6.0.5",
+    "verdaccio-ff-auth": "file:../packages/verdaccio-ff-auth"
+  }
+}
