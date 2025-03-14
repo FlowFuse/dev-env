@@ -183,3 +183,35 @@ npm start
 The default configuration file for verdaccio expects the forge app to be running on `http://127.0.0.1:3000`
 If that is not the case, edit `verdaccio/config/config.yaml` with the correct url. 
 
+### EMQX
+
+To enable the Team Broker, you need a running EMQX configured to use FlowFuse to authentication connections.
+
+The best way to do that requires docker to be installed.
+
+To enable, edit your `packages/flowfuse/etc/flowforge.local.yml` to include:
+
+```yaml
+broker:
+  url: mqtt://127.0.0.1:4880
+  public_url: ws://127.0.0.1:4881
+  teamBroker:
+    enabled: true
+    host: 127.0.0.1:4880
+```
+
+EMQX can the be run with:
+
+```
+cd emqx
+sh ./start-emqx.sh
+```
+
+Note: Windows users may have to run the docker command manually - YMMV.
+
+To stop emqx, run `docker stop emqx`.
+
+The default configuration file for emqx expects the forge app to be running on `http://127.0.0.1:3000`.
+If you are running on a different port, edit `emqx/cluster.hocon` to update the references to port 3000 throughout the file.
+
+EMQX will run with a native MQTT listener on port 4880, and a WebSocket listener on port 4881. If you need to change either of those, you will need to update the `flowforge.local.yml` configuration as well as the docker command that maps to those ports.
