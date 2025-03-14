@@ -156,3 +156,30 @@ Than run `npm run init` to setup your database.
 Start the server by running `postgres -s -D ./data/pg -k $(pwd)/data -p 54321`
 from the root directory, and keep the terminal window open. Just once you'll
 need to run `createdb -h $(pwd)/data -p 54321 flowforge`.
+
+### Verdaccio
+
+To enable the Team Node Repository, you need a running verdaccio instance configured
+with the authentication plugin for FlowFuse.
+
+To enable, you will need to edit your `packages/flowfuse/etc/flowforge.local.yml` to include:
+
+```yaml
+npmRegistry:
+  enabled: true
+  url: http://localhost:4873
+  admin:
+    username: admin
+    password: secret
+```
+
+To run verdaccio:
+
+```
+cd verdaccio
+npm start
+```
+
+The default configuration file for verdaccio expects the forge app to be running on `http://127.0.0.1:3000`
+If that is not the case, edit `verdaccio/config/config.yaml` with the correct url. 
+
