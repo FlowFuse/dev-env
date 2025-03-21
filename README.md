@@ -1,13 +1,13 @@
 # FlowFuse Development Environment
 
-This repository provides a quick and easy way to setup a local FlowFuse development
+This repository provides a quick and easy way to set up a local FlowFuse development
 environment.
 
 ## Getting Started
 
 1. Clone this repository
 
-2. Install npm though a [Node version manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm) (e.g. NVM, Volta) or with a [custom global install directory](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory).
+2. Install npm through a [Node version manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm) (e.g. NVM, Volta) or with a [custom global install directory](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory).
 
 3. In the root of this repository run:
 
@@ -90,7 +90,7 @@ For each repository on the `main` branch, pull the latest code.
 
 ### `npm run git <cmd>`
 
-Run any git command on each repostory. For example, to ensure all repositories
+Run any git command on each repository. For example, to ensure all repositories
 are on the main branch:
 
 ```
@@ -101,7 +101,7 @@ npm run git checkout main
 
 The FlowFuse platform consists of a number of npm modules. Each module is maintained
 in its own git repository. When developing the code and you need to make changes
-across multiple modules, you want to be sure the your development code is loaded.
+across multiple modules, you want to be sure that your development code is loaded.
 
 We used to achieve that by running a script that modified the package.json of which
 module to point to a relative location. That left the package.json file modified
@@ -122,7 +122,7 @@ You can run any command in all repos using either of the following methods:
     npm exec --ws -- /usr/bin/git checkout main
     ```
 
-    However the command will require a full path and you cannot use shell built-ins.
+    However, the command will require a full path and you cannot use shell built-ins.
 
 2. `find ...`
 
@@ -135,7 +135,7 @@ You can run any command in all repos using either of the following methods:
 
 ### PostgreSQL
 
-By default FlowFuse uses SQLite for development. Given production systems do not
+By default, FlowFuse uses SQLite for development. Given production systems do not
 tend to use SQLite but PostgreSQL (PG) it's advised to run PG for development too.
 As prerequisite, one should install PG on their own system.
 
@@ -151,7 +151,7 @@ db:
   port: 54321
 ```
 
-Than run `npm run init` to setup your database.
+Then run `npm run init` to setup your database.
 
 Start the server by running `postgres -s -D ./data/pg -k $(pwd)/data -p 54321`
 from the root directory, and keep the terminal window open. Just once you'll
@@ -162,7 +162,7 @@ need to run `createdb -h $(pwd)/data -p 54321 flowforge`.
 To enable the Team Node Repository, you need a running verdaccio instance configured
 with the authentication plugin for FlowFuse.
 
-To enable, you will need to edit your `packages/flowfuse/etc/flowforge.local.yml` to include:
+To enable it, you will need to edit your `packages/flowfuse/etc/flowforge.local.yml` to include:
 
 ```yaml
 npmRegistry:
